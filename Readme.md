@@ -4,7 +4,7 @@
 ## Backend: Python/Django
 ## DB: Sqlite
 
-##Frontend: ReactJs
+## Frontend: ReactJs
 ## Node: 8+
 
 # Install Application via Docker
@@ -25,7 +25,7 @@ step 5: Open Browser.
 
 # REST API Detail.
 
-## Import atria.postman_collection json file in Post
+## Import atria.postman_collection json file in PostMan
 
 or 
 ## Base URL: http://13.126.158.36:3000
