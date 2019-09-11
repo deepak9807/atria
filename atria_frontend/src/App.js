@@ -10,12 +10,7 @@ class App extends Component {
       showtableComponent: false,
       showchartComponent: false,
       options : {},
-      sensorData: [
-        { id: 1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
-        { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-        { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-        { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
-     ]
+      sensorData: []
     };
     this._ontableButtonClick = this._ontableButtonClick.bind(this);
     this._onchartButtonClick = this._onchartButtonClick.bind(this);
