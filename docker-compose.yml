@@ -1,21 +1,25 @@
-version: '2'
+version: "2"
 
 services:
   backend:
     container_name: atria_backend
-    build: atria_backend/.
-    command: python manage.py runserver 0.0.0.0:8000
+    build: ./atria_backend
+    command: >
+      bash -c "python manage.py makemigrations
+      && python manage.py migrate
+      && pip install -r requirements.txt
+      && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/code
+      - ./atria_backend:/code
     ports:
       - "8000:8000"
   frontend:
     container_name: atria_frontend
-    build: atria_frontend/.
+    build: ./atria_frontend
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - "./atria_frontend:/usr/src"
+      - "/node_modules"
     ports:
-      - '3001:3000'
+      - "3001:3000"
     environment:
       - NODE_ENV=development
