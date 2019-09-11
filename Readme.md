@@ -1,11 +1,11 @@
 
 ## Project Detail:
 
-#Backend: Python/Django
-#DB: Sqlite
+# Backend: Python/Django
+# DB: Sqlite
 
-#Frontend: ReactJs
-#Node: 8+
+# Frontend: ReactJs
+# Node: 8+
 
 # Install Application via Docker
 
@@ -23,12 +23,12 @@ $ sudo docker-compose up
 step 5: Open Browser.
  http:localhost:3000
 
-REST API Detail.
+## REST API Detail.
 
-Import json file in Post
+# Import atria.postman_collection json file in Post
 
 or 
-Base URL: http://13.126.158.36:3000
+# Base URL: http://13.126.158.36:3000
 
 Store a sensor Data:
 
