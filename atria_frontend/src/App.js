@@ -12,6 +12,7 @@ class App extends Component {
       options : {},
       sensorData: []
     };
+    
     this._ontableButtonClick = this._ontableButtonClick.bind(this);
     this._onchartButtonClick = this._onchartButtonClick.bind(this);
   }
@@ -104,33 +105,42 @@ class App extends Component {
 }
   render() {
     if (!this.state.showtableComponent && !this.state.showchartComponent){
+
+      let styles = {
+        float: 'left'
+      };
+
     return (
       <div className="App">
         <div className="App-header">
-          <img src="http://atria.edu/assets/images/logo-atria.png" alt="logo" />
-          <h2>Welcome to Atria</h2>
+          <img style={styles}  src="http://atria.edu/assets/images/logo-atria.png" alt="logo" />
+          {/* <h2>Welcome to Atria</h2> */}
         </div>
         <p className="App-intro">
           Click Below options
         </p>
         <div>
-         <button onClick={this._ontableButtonClick}>Show Table</button>
-         <button onClick={this._onchartButtonClick}>Show Chart</button>
+         <button className="button" onClick={this._ontableButtonClick}><span>Show Table</span></button>
+         <button className="button" onClick={this._onchartButtonClick}><span>Show Chart</span></button>
          </div>
       </div>
         
     );
     }
       if (this.state.showtableComponent){
-      return (
-        <div className="App">
+
+        let styles = {
+          float: 'left'
+        };
+
+        return (
+          <div className="App">
           <div className="App-header">
-            <img src="http://atria.edu/assets/images/logo-atria.png" alt="logo" />
-            <h2>Welcome to Atria</h2>
+            <img style={styles} src="http://atria.edu/assets/images/logo-atria.png" alt="logo" />
           </div>
-          <p className="App-intro">
-            Click Below options
-          </p>
+            <p className="App-intro">
+              Click Below options
+            </p>
           <button onClick={this._onchartButtonClick}>Show Chart</button>
           <div>
             <h1>Sensor Data</h1>
@@ -146,23 +156,26 @@ class App extends Component {
       );
     }
     if(this.state.showchartComponent){
+      let styles = {
+        float: 'left'
+      };
       return(
         <div className="App">
           <div className="App-header">
-            <img src="http://atria.edu/assets/images/logo-atria.png" alt="logo" />
-            <h2>Welcome to Atria</h2>
+            <img style={styles} src="http://atria.edu/assets/images/logo-atria.png" alt="logo" />
           </div>
-          <p className="App-intro">
-            Click Below options
-          </p>
+            <p className="App-intro">
+              Click Below options
+            </p>
           <button onClick={this._ontableButtonClick}>Show table</button>
-            <h1>Sensor Data Chart</h1>
-        <div>
-          <HighchartsReact highcharts={Highcharts} options={this.state.options} />
-      </div></div>
-      );
-    }
-  }
+          <h1>Sensor Data Chart</h1>
+            <div style={{ height: 300, overflow: "auto" }}>
+            <HighchartsReact highcharts={Highcharts} options={this.state.options} />
+          </div>
+      </div>
+      ); 
+    } 
+  } 
 }
-
+  
 export default App;
