@@ -9,19 +9,7 @@ class App extends Component {
     this.state = {
       showtableComponent: false,
       showchartComponent: false,
-      options :{
-        chart: {
-          type: 'spline'
-        },
-        title: {
-          text: 'My chart'
-        },
-        series: [
-          {
-            data: [1, 2, 1, 4, 3, 6]
-          }
-        ]
-      },
+      options : {},
       sensorData: [
         { id: 1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
         { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
@@ -65,11 +53,41 @@ class App extends Component {
     });
   }
   _onchartButtonClick() {
+    this.fethChartData();
     this.setState({
       showtableComponent: false,
       showchartComponent:true
     });
   }
+  fethChartData= ()=>{
+    fetch("http://localhost:8000/sensor/chart/?startDate=2019-01-11&endDate=2019-09-11", {
+      method: "GET",
+      dataType: "JSON",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      }
+    })
+    .then((resp) => {
+      return resp.json()
+    }) 
+    .then((data) => {
+      console.log(data)
+      let _data = {
+        chart: {
+          type: 'spline'
+        },
+        xAxis: {
+        categories: data.categories
+       },
+        series: data.series
+      }
+      this.setState({ options: _data})  
+      console.log(this.state.options)                  
+    })
+    .catch((error) => {
+      console.log(error, "catch the hoop")
+    })
+  }  
   renderTableData() {
     return this.state.sensorData.map((sensorData, index) => {
        const { id, sensor_type, reading, created_at} = sensorData //destructuring
@@ -143,7 +161,7 @@ class App extends Component {
             Click Below options
           </p>
           <button onClick={this._ontableButtonClick}>Show table</button>
-            <h1>Sensor Data</h1>
+            <h1>Sensor Data Chart</h1>
         <div>
           <HighchartsReact highcharts={Highcharts} options={this.state.options} />
       </div></div>
