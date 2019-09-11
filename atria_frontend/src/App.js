@@ -23,7 +23,7 @@ class App extends Component {
   }
   
   fetchData = () => {
-    fetch("http://localhost:8000/sensor/add/?startDate=2019-01-11&endDate=2019-09-11", {
+    fetch("http://13.126.158.36:8000/sensor/add/?startDate=2019-01-11&endDate=2019-09-11", {
       method: "GET",
       dataType: "JSON",
       headers: {
@@ -56,7 +56,7 @@ class App extends Component {
     });
   }
   fethChartData= ()=>{
-    fetch("http://localhost:8000/sensor/chart/?startDate=2019-01-11&endDate=2019-09-11", {
+    fetch("http://13.126.158.36:8000/sensor/chart/?startDate=2019-01-11&endDate=2019-09-11", {
       method: "GET",
       dataType: "JSON",
       headers: {

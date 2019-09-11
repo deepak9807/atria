@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "136da8ce-f268-47c4-bc56-c4909175689d",
+		"name": "atria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Sensor data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://13.126.158.36:8000/sensor/data?startDate=2019-01-10&endDate=2019-09-11",
+					"protocol": "http",
+					"host": [
+						"13",
+						"126",
+						"158",
+						"36"
+					],
+					"port": "8000",
+					"path": [
+						"sensor",
+						"data"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2019-01-10"
+						},
+						{
+							"key": "endDate",
+							"value": "2019-09-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chart Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://13.126.158.36:8000/sensor/chart?startDate=2019-01-10&endDate=2019-09-11",
+					"protocol": "http",
+					"host": [
+						"13",
+						"126",
+						"158",
+						"36"
+					],
+					"port": "8000",
+					"path": [
+						"sensor",
+						"chart"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2019-01-10"
+						},
+						{
+							"key": "endDate",
+							"value": "2019-09-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post/Store sensor data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reading\":\"21\",\n\t\"timestamp\":\"2019-09-11T06:34:22.324850Z\",\n\t\"sensorType\":\"atria\"\n}"
+				},
+				"url": {
+					"raw": "http://13.126.158.36:8000/sensor/add/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"126",
+						"158",
+						"36"
+					],
+					"port": "8000",
+					"path": [
+						"sensor",
+						"add",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

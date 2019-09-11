@@ -28,23 +28,28 @@ REST API Detail.
 Import json file in Post
 
 or 
-Base URL: http//:13.126.158.36:8000
+Base URL: http://13.126.158.36:3000
 
 Store a sensor Data:
 
-Endpoint:
+Endpoint: http://13.126.158.36:8000/sensor/add/
 Method: POST
 Body:
+{
+	"reading":"21",
+	"timestamp":"2019-09-11T06:34:22.324850Z",
+	"sensorType":"atria"
+}
 
-Get sensor Data:
+Get sensor Data:http://13.126.158.36:8000/sensor/data?startDate=2019-01-10&endDate=2019-09-11
 Endpoint: GET
-parmas:
+parmas: startDate, endDate
 
-LineChar API:
+LineChar API: http://13.126.158.36:8000/sensor/chart?startDate=2019-01-10&endDate=2019-09-11
 Endpoint GET:
-parmas:
+parmas:startDate, endDate
 
 
-## thanks for us
+
 
 
